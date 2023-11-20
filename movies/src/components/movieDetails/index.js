@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chip from "@mui/material/Chip";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
@@ -10,6 +10,12 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import MovieFilterIcon from '@mui/icons-material/MovieFilter';
 import Grid from "@mui/material/Grid";
+import {getCredits} from '../../api/tmdb-api';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
 
 
 const root = {
@@ -24,6 +30,16 @@ const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [movieCredits, setMovieCredits] = useState([])
+
+  useEffect(() => {
+    console.log(movie)
+    getCredits(movie.id).then(movie => {
+      setMovieCredits(movie)
+    })
+  },[])
+
+  console.log(movieCredits.cast)
 
   return (
     <>
@@ -70,6 +86,35 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
 
         </Grid>
       </Grid>
+
+      <Container style={{ overflowX: 'scroll'}}>
+        <Typography style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem'}}>
+          Series Cast
+        </Typography>
+        <Paper elevation={3}>
+          <Stack direction="row" spacing={2}>
+            {movieCredits && movieCredits.cast && movieCredits.cast.slice(0,9).map((movie) => (
+
+              <Card key={movie.id} style={{overflow: 'visible', margin: '1rem'}}>
+                <CardMedia
+                  component="img"
+                  height={300}
+                  image={`https://image.tmdb.org/t/p/w500/${movie.profile_path}`}
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <Typography style={{ fontSize: '1.5rem', fontWeight: 'bold'}} gutterBottom  component="div">
+                    {movie.original_name}
+                  </Typography>
+                  <Typography gutterBottom  component="div">
+                    {movie.character}
+                  </Typography>        
+                </CardContent>
+              </Card>
+            ))}
+          </Stack>
+        </Paper>
+      </Container>
     </Box>
     </Container>
       <Fab
