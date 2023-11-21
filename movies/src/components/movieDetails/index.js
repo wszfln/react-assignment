@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import SimilarMovieList from "../similarMoviesList";
 
 
 const root = {
@@ -28,7 +29,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie }) => {  // Don't miss this!
+const MovieDetails = ({ movie,similarMovies }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [movieCredits, setMovieCredits] = useState([])
 
@@ -130,6 +131,14 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         <NavigationIcon />
         Reviews
       </Fab>
+        <Typography style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem'}}>
+        Similar Movies
+      </Typography>
+      <Grid container sx={{ padding: '20px' }}>
+      <Grid item container spacing={5}>
+        <SimilarMovieList similarMovies={similarMovies}/>
+      </Grid>
+    </Grid>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
