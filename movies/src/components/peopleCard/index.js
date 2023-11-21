@@ -11,8 +11,11 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import React from "react";
+import Chip from "@mui/material/Chip";
 
 export default function PeopleCard({ person, action }) {
+    const chip = { margin: 0.5 };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader

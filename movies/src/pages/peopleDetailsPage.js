@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import PersonDetails from "../components/peopleDetails/";
 import PageTemplate from "../components/templatePeoplePage";
-import { getPerson } from '../api/tmdb-api'
+import { getPerson, getPeopleMovieCredits } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
@@ -11,6 +11,10 @@ const PeopleDetailsPage = (props) => {
   const { data: person, error, isLoading, isError } = useQuery(
     ["person", { id: id }],
     getPerson
+  );
+  const { data: personMovie } = useQuery(
+    ["person movie credits", { id: id }],
+    getPeopleMovieCredits
   );
 
   if (isLoading) {
@@ -26,7 +30,7 @@ const PeopleDetailsPage = (props) => {
       {person ? (
         <>
           <PageTemplate person={person}>
-            <PersonDetails person={person} />
+            <PersonDetails person={person} personMovie={personMovie} />
           </PageTemplate>
         </>
       ) : (

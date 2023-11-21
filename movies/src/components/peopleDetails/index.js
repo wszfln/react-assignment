@@ -3,6 +3,8 @@ import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import CakeIcon from '@mui/icons-material/Cake';
+import ActorMovieCreditsList from "../actorMovieCreditsList"
+import Grid from "@mui/material/Grid";
 
 const root = {
     display: "flex",
@@ -14,7 +16,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const PeopleDetails = ({ person }) => {  
+const PeopleDetails = ({ person, personMovie }) => {  
     function age(person){
         const date = new Date();
         if (person.birthday === null){
@@ -33,7 +35,7 @@ const PeopleDetails = ({ person }) => {
       </Typography>
 
       <Typography variant="h6" component="p">
-        {person.name}
+      {person.biography}
       </Typography>
       <Paper component="ul" sx={{...root}}>
         <Chip  label={`Popularity: ${Math.round(person.popularity)}`} />
@@ -48,6 +50,14 @@ const PeopleDetails = ({ person }) => {
         </li>
 
       </Paper>
+      <Typography style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem'}}>
+        Acted Movies
+      </Typography>
+      <Grid container sx={{ padding: '20px' }}>
+      <Grid item container spacing={5}>
+        <ActorMovieCreditsList personMovie={personMovie}/>
+      </Grid>
+    </Grid>
 
       </>
   );
