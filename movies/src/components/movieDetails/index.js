@@ -17,6 +17,7 @@ import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import SimilarMovieList from "../similarMoviesList";
+import MovieSite from '../movieSite';
 
 
 const root = {
@@ -79,13 +80,15 @@ const MovieDetails = ({ movie,similarMovies }) => {  // Don't miss this!
 
         <Stack style={{marginTop: '1rem'}} spacing={1}>
           <Rating name="half-rating-read" defaultValue={(movie.vote_average)/2} precision={0.5} readOnly />
-        </Stack>  
+        </Stack>
         <Stack>
           <p style={{fontSize: '2rem', marginBottom: '0'}}>Overview</p>
           <p style={{fontSize: '1.2rem'}}>{movie.overview}</p>
         </Stack>
-
         </Grid>
+        <Grid item xs={5} sx={{ marginLeft: 'auto' }}>
+          <MovieSite movie={movie} />
+        </Grid>  
       </Grid>
 
       <Container style={{ overflowX: 'scroll'}}>
