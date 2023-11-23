@@ -18,6 +18,9 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import SimilarMovieList from "../similarMoviesList";
 import MovieSite from '../movieSite';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 
 
 const root = {
@@ -32,7 +35,12 @@ const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie,similarMovies }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [movieCredits, setMovieCredits] = useState([])
+  const [movieCredits, setMovieCredits] = useState([]);
+  const navigate = useNavigate();
+
+  const handelMenuSelect = (pageURL) => {
+    navigate(pageURL, { replace: true});
+  }
 
   useEffect(() => {
     console.log(movie)
@@ -114,6 +122,11 @@ const MovieDetails = ({ movie,similarMovies }) => {  // Don't miss this!
                     {movie.character}
                   </Typography>        
                 </CardContent>
+                <CardActions >
+                <Button onClick={() => handelMenuSelect(`/people/${movie.id}`)} style={{ width: '15rem'}}>
+                  Learn More
+                </Button>
+                </CardActions>
               </Card>
             ))}
           </Stack>
