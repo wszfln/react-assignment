@@ -2,7 +2,6 @@ import React,{ useState} from "react";
 import Movie from "../movieCard";
 import Grid from "@mui/material/Grid";
 import ReactPaginate from "react-paginate";
-import { Stack } from "@mui/material";
 
 const MovieList = ( {movies, action }) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -23,7 +22,7 @@ const MovieList = ( {movies, action }) => {
     <>
       {movieCards}
 
-      <div style={{ bottom: 0, left: 0, right: 0 }}>
+      <div style={{position: 'fixed', bottom: '0', right: '0' , margin: '10px' }}>
         <ReactPaginate 
         previousLabel={"previous"}
         nextLabel={"next"}

@@ -22,7 +22,7 @@ const pageCount = Math.ceil(people.length / peoplePerPage);
     <>
       {peopleCards}
       
-      <div style={{ bottom: 0, left: 100, right: 0 }}>
+      <div style={{ position: 'fixed', bottom: '0', right: '0' , margin: '10px' }}>
         <ReactPaginate 
         previousLabel={"previous"}
         nextLabel={"next"}
