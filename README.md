@@ -13,7 +13,7 @@ This movie application is based on labs and adds many new features and new endpo
   + modified the movie introduction information and keywords, and added new MUI components
   + added a cast section, and added a link button that can directly link to actor details on this section
   + added a list of similar movies
-+ Added must-see pages:
++ Added must-watch pages:
   + People can add must-watch movies to this page from the Upcoming page, or delete them
   + Added search and filter functions to search for movie names and filter movies by genre
 + Added actor page:
@@ -27,8 +27,8 @@ This movie application is based on labs and adds many new features and new endpo
 
 ## Setup requirements.
 
-Installed React Paginate: npm install react-paginate
-Added bootstrap styles in the public/index.js: <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
++ Installed React Paginate: npm install react-paginate
++ Added bootstrap styles in the public/index.js: <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 ## API endpoints.
 
@@ -49,8 +49,8 @@ Added bootstrap styles in the public/index.js: <link href="https://cdn.jsdelivr.
 ## Independent learning
 + React paginate is used to implement pagination
   + Source code file name: 
-    src/Components/movieList/index.js
-    src/Components/peopleList/index.js
+    + src/Components/movieList/index.js
+    + src/Components/peopleList/index.js
   + References:
     youtube tutorial: https://www.youtube.com/watch?v=kMuRr53RjcE&t=1177s
 
