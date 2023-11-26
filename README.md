@@ -6,6 +6,8 @@ Name: Yingying Lu(20095278)
 
 This movie application is based on labs and adds many new features and new endpoints in tmdb-api. New must-watch pages and actor pages have been added. In addition, some of the original functions of the program have been beautified and improved, and the movie details page has been optimized to make the web page better.
 
+Youtube link: https://youtu.be/l3BuzsCU-SQ
+
 ### Features.
 
 + Modified movie details page:
