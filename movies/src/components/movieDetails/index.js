@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import Chip from "@mui/material/Chip";
 import NavigationIcon from "@mui/icons-material/Navigation";
@@ -47,7 +48,7 @@ const MovieDetails = ({ movie,similarMovies }) => {  // Don't miss this!
     getCredits(movie.id).then(movie => {
       setMovieCredits(movie)
     })
-  },[])
+  },[movie])
 
   console.log(movieCredits.cast)
 

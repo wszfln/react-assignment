@@ -1,6 +1,6 @@
 # Assignment 1 - ReactJS app.
 
-Name: Yingying Lu
+Name: Yingying Lu(20095278)
 
 ## Overview.
 

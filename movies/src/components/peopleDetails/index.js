@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
